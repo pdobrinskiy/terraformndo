@@ -1,0 +1,9 @@
+ndo:
+  schemas:
+    - name: ABC
+      templates:
+        - name: TEMPLATE1
+          tenant: MSO1
+          sites:
+            - SITE1
+

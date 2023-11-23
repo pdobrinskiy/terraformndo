@@ -9,3 +9,64 @@ locals {
 data "mso_rest" "ndo_version" {
   path = "api/v1/platform/version"
 }
+
+
+provider "mso" {
+    # cisco-mso user name
+    username = "admin"
+    # cisco-mso password
+    password =xxxxxxxxxxx
+    # cisco-mso url
+    url      = xxxxxxx
+    insecure = true
+    platform = "nd"
+}
+module "tenant" {
+  source  = "netascode/nac-ndo/mso"
+  version = ">= 0.7.0"
+
+  yaml_files = ["data/ndo.yaml"]
+
+  manage_sites   = false
+  manage_tenants = true
+  managed_tenants = ["MSO1"]
+  manage_schemas   = true
+  deploy_templates   = true
+}
+module "schema" {
+  source  = "netascode/nac-ndo/mso"
+  version = ">= 0.7.0"
+
+  yaml_files = ["data/ndo.yaml"]
+  manage_tenants = true
+  manage_schemas   = true
+  deploy_templates   = true
+}
+module "template" {
+  source  = "netascode/nac-ndo/mso"
+  version = ">= 0.7.0"
+
+  yaml_files = ["data/ndo.yaml"]
+
+  manage_tenants = true
+  manage_schemas   = true
+  deploy_templates   = true
+}
+module "deploy_templates" {
+  source  = "netascode/nac-ndo/mso"
+  version = ">= 0.7.0"
+
+  manage_tenants = true
+  manage_schemas   = true
+  deploy_templates   = true
+  yaml_files = ["data/ndo.yaml"]
+}
+module "sites" {
+  source  = "netascode/nac-ndo/mso"
+  version = ">= 0.7.0"
+
+  yaml_files = ["data/ndo.yaml"]
+  manage_tenants = true
+  manage_schemas   = true
+  deploy_templates   = true
+}

@@ -1,0 +1,10 @@
+ndo:
+  schemas:
+    - name: NDO_Template  
+      templates:
+        - name: global
+          tenant:
+            - name: NDO1
+          sites:
+            - name: SITE1
+            - name: SITE2

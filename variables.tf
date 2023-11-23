@@ -1,13 +1,13 @@
 variable "yaml_directories" {
   description = "List of paths to YAML directories."
   type        = list(string)
-  default     = []
+  default     = ["data"]
 }
 
 variable "yaml_files" {
   description = "List of paths to YAML files."
   type        = list(string)
-  default     = []
+  default     = ["data/ndo.yaml"]
 }
 
 variable "model" {
@@ -38,31 +38,31 @@ variable "manage_site_connectivity" {
 variable "manage_tenants" {
   description = "Flag to indicate if tenants be managed."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "managed_tenants" {
   description = "List of tenant names to be managed. By default all tenants will be managed."
   type        = list(string)
-  default     = []
+  default     = ["MSO1"]
 }
 
 variable "manage_schemas" {
   description = "Flag to indicate if schemas should be managed."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "managed_schemas" {
   description = "List of schema names to be managed. By default all schemas will be managed."
   type        = list(string)
-  default     = []
+  default     = ["ABC"]
 }
 
 variable "deploy_templates" {
   description = "Flag to indicate if templates should be deployed."
   type        = bool
-  default     = false
+  default     = true
 }
 
 variable "write_default_values_file" {
